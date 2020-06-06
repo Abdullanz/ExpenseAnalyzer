@@ -1,16 +1,17 @@
 body {
-    background: #75d288;
+    background: #f7fcfa;
     font-family: 'zahra-bold';
     font-size: x-large;
     text-align: center;
+    color: #314b64;
 }
 
 .content {
     max-width: 1240px;
     margin: auto;
     margin-top: 2rem;
-    border-radius: 16px;
-    box-shadow: -4px 4px 8px #4c8958, 4px -4px 8px #9effb8;
+    border-radius: 44px;
+    box-shadow: 41px 41px 81px #aaaead, -41px -41px 81px #ffffff;
 }
 
 .stylish-button {
