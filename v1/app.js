@@ -11,7 +11,7 @@ var app = express();
 var bodyParser = require("body-parser");
 var port = 3000;
 
-
+//Routing
 var indexRoutes = require("./routes/index");
 
 /**
@@ -23,8 +23,6 @@ app.set("view engine", "ejs"); //To setup the ejs file types
 app.use(express.static(__dirname + "/public")); //To access styling sheets
 
 
-
-//For debugging
 var cl = console.log.bind(console); //shortens the debugging process a bit :)
 
 
