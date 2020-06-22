@@ -7,8 +7,11 @@ This project is an Open Source project to spread financial awareness among peopl
 
 ## Environment Specs
 NodeJS (Version )
+
 ExpressJS (Version )
+
 ReactJS (Version )
+
 MongoDB (Version )
 
 ## Run it locally
@@ -36,5 +39,6 @@ Abdullah Najjar
 
 ## Project Glossary
 Open Source
+
 FinTech
 
