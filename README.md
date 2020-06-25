@@ -5,6 +5,9 @@
 ## Description
 This project is an Open Source project to spread financial awareness among people it is built as a MERN Application. I am building it to learn about concepts and technologies like; Continuous Integration, React, and strengthens my MongoDB abilities. I am generally using Embedded JavaScript to and the Model-View-Controller (MVC) model to create the project, but currently I am at the initial stage of development.
 
+## Use Cases
+
+
 ## Environment Specs
 
 ExpressJS (Version 4.17.1)

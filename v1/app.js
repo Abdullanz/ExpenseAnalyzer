@@ -1,7 +1,7 @@
 /**
  *  File Name: app.js
  *  Description:
- *  Date:
+ *  Date: 25 June, 2020
  *  Author: Abdullah Najjar
  * TODO: Add all the libraries needed and setup to the routes.
  */
@@ -75,6 +75,6 @@ app.use(indexRoutes);
 /**
  *  To init the server
  */
-app.listen(port, () => {
-    cl("Server has started!");
-});
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => console.log(`App listening on port ${PORT}..`));
