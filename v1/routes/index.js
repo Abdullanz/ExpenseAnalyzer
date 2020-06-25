@@ -1,3 +1,10 @@
+/**
+ * Author: Abdullah Najjar
+ * Date: 25 June, 2020
+ * Description: To embed all routes of the application in here
+ * filename: index.js
+ */
+
 var express = require("express");
 var router = express.Router();
 

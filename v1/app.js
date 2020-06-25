@@ -10,20 +10,66 @@ var app = express();
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 var port = 3000;
+var passport = require("passport");
+var methodOverride = require("method-override");
+var LocalStrategy = require("passport-local");
+
+//Models
+var Report = require("./models/report.js");
+var User = require("./models/user.js");
 
 //Routing
 var indexRoutes = require("./routes/index");
 
+
+
+/**
+ * To conncet to local database
+ */
+mongoose.connect("mongodb://localhost/ExpenseAnalyzer", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false
+});
+
+
+
+
 /**
  *  Init the setup
  */
-app.use(indexRoutes);
 app.use(bodyParser.urlencoded({ extended: true })); //To set up body parser
 app.set("view engine", "ejs"); //To setup the ejs file types
 app.use(express.static(__dirname + "/public")); //To access styling sheets
-
+app.use(methodOverride("_method"));
 
 var cl = console.log.bind(console); //shortens the debugging process a bit :)
+
+
+/**
+ * PASSPORT CONFIGURATION
+ */
+app.use(
+    require("express-session")({
+        secret: "Rusty is the best",
+        resave: false,
+        saveUninitialized: false,
+    })
+);
+
+
+/**
+ * Inits to use libraries as a middleware
+ */
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
+//To use the routes
+app.use(indexRoutes);
 
 
 /**
