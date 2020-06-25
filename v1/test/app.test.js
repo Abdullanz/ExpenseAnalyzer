@@ -5,21 +5,27 @@
  *  Author: Abdullah Najjar
  */
 
-var expect = require("chai").expect;
-var request = require("request");
+// var request = require("request");
 const chaiHttp = require("chai-http");
+var chai = require("chai");
+const router = require("../routes");
+const app = require("../app");
 
-const { expect } = chai;
+
+var expect = chai.expect;
+var assert = chai.assert;
+
+
 chai.use(chaiHttp);
-describe("Server!", () => {
-    it("welcomes user to the api", (done) => {
+
+//To check on the status of the app on the web
+describe("Server", () => {
+    it("App is running okay", (done) => {
         chai
             .request(app)
             .get("/")
             .end((err, res) => {
                 expect(res).to.have.status(200);
-                expect(res.body.status).to.equals("success");
-                expect(res.body.message).to.equals("Welcome To Testing API");
                 done();
             });
     });

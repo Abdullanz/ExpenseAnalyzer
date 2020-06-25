@@ -19,31 +19,33 @@ Mongoose (Version 5.9.17)
 I am currently implementing the Front-End using the Neumorphism approach. I like the concept of minimlism in providing a simple and stright forward user experience with a touch of sophistication.
 
 ## Run it locally
-
-localhost 3000 :)
+first, please install all the dependencies.
+Secound, node app.js
+after that the application will be running locally at the (localhost: 3000)
 
 
 ## Testing
-Planning to use Mocha and/or Junit
+Mocha
+Chai
 
 
 ## Deployment
-I am planning to use Lightsail service from AWS
+Lightsail service by AWS starting from version 1.0
 
 ## Version
-0.1
+0.3
 
 ## Documentation
 Planning to use JSDoc for that
 
 ## License
-MIT License
+[MIT License](https://choosealicense.com/licenses/mit/)
 
 ## Author
 Abdullah Najjar
 
 ## Project Glossary
-Open Source
 
-FinTech
+[Open Source](https://opensource.com/resources/what-open-source)
 
+[FinTech](https://en.wikipedia.org/wiki/Financial_technology)
