@@ -16,6 +16,26 @@ router.get("/", (req, res) => {
     res.render("landing");
 });
 
+
+/**
+ *  This route is for filling the form
+ */
+router.get("/login", (req, res) => {
+    res.render("login");
+});
+
+
+
+/**
+ *  This route is for filling the form
+ */
+router.get("/signup", (req, res) => {
+    res.render("signup");
+});
+
+
+
+
 /**
  *  This route is for filling the form
  */
