@@ -35,7 +35,6 @@ router.get("/signup", (req, res) => {
 
 
 
-
 /**
  *  This route is for filling the form
  */
