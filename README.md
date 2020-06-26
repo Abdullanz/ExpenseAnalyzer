@@ -20,12 +20,14 @@ I am currently implementing the Front-End using the Neumorphism approach. I like
 
 ## Run it locally
 first, please install all the dependencies.
-Secound, node app.js
-after that the application will be running locally at the (localhost: 3000)
+
+Secound, node app.js, then the app will be running locally at the (localhost: 3000).
 
 
 ## Testing
+
 Mocha
+
 Chai
 
 
@@ -36,7 +38,8 @@ Lightsail service by AWS starting from version 1.0
 0.3
 
 ## Documentation
-Planning to use JSDoc for that
+
+JSDoc
 
 ## License
 [MIT License](https://choosealicense.com/licenses/mit/)
