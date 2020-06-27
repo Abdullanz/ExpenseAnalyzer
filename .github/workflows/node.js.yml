@@ -34,8 +34,3 @@ jobs:
       working-directory: ./v1    
       env:
         CI: true
-
-
-        - name: Clean temp directory
-  run: rm -rf *
-  working-directory: ./temp
