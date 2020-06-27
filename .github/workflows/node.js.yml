@@ -18,22 +18,24 @@ jobs:
         node-version: [13.x]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@master
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@master
       with:
         node-version: ${{ matrix.node-version }}
     - name: install packages
-      uses: actions/setup-node@v1   
-      working-directory: ./v1
     - run: npm ci
+      working-directory: ./v1  
     - name: build app
-      uses: actions/setup-node@v1     
-      working-directory: ./v1
     - run: npm run build
-    - name: test app
-      uses: actions/setup-node@v1  
       working-directory: ./v1
+    - name: test app
     - run: npm test
+      working-directory: ./v1    
       env:
         CI: true
+
+
+        - name: Clean temp directory
+  run: rm -rf *
+  working-directory: ./temp
