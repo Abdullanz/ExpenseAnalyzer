@@ -11,8 +11,9 @@ on:
 
 jobs:
   build:
-
     runs-on: windows-latest
+    env:
+        working-directory: ./v1
 
     strategy:
       matrix:
@@ -24,8 +25,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+        working-directory: ./v1
     - run: npm ci
     - run: npm run build
     - run: npm test
       env:
         CI: true
+        working-directory: ./v1
