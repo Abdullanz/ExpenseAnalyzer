@@ -3,9 +3,7 @@ node_js:
 - v13.10.1
 cache: npm
 
-
-
-before_script: cd v1
+before_install: cd v1
 
 install:
   - npm ci
