@@ -6,7 +6,11 @@ cache: npm
 install:
   - npm ci
 
-script: build.sh
+before_script: cd v1
+
+script:
+  - npm run build
+  - npm test
 
 deploy:
   github-token: $GITHUB_TOKEN
