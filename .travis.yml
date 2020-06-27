@@ -3,10 +3,12 @@ node_js:
 - v13.10.1
 cache: npm
 
-install:
-  - npm ci
+
 
 before_script: cd v1
+
+install:
+  - npm ci
 
 script:
   - npm run build
