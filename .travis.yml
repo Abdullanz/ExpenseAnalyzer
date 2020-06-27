@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-- 13.0.0
+- v13.10.1
 cache: npm
 
 install:
