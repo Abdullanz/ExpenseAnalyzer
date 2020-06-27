@@ -23,13 +23,16 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: install packages   
+    - name: install packages
+      uses: actions/setup-node@v1   
       working-directory: ./v1
     - run: npm ci
-    - name: build app   
+    - name: build app
+      uses: actions/setup-node@v1     
       working-directory: ./v1
     - run: npm run build
-    - name: test app    
+    - name: test app
+      uses: actions/setup-node@v1  
       working-directory: ./v1
     - run: npm test
       env:
