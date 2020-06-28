@@ -63,11 +63,19 @@ router.post("/register", function(req, res) {
 
 
 /**
- *  This route is for filling the form
+ *  This route is for the form
  */
 router.get("/form", middleware.isLoggedIn, (req, res) => {
     res.render("form");
 });
+
+/**
+ *  This route is for filling the form
+ */
+router.post("/form", middleware.isLoggedIn, (req, res) => {
+    res.render("results");
+})
+
 
 /**
  *  This route is generated to show the results of analyzing the form
