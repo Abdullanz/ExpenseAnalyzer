@@ -9,7 +9,6 @@ var express = require("express");
 var app = express();
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
-var port = 3000;
 var passport = require("passport");
 var methodOverride = require("method-override");
 var LocalStrategy = require("passport-local");
@@ -51,7 +50,7 @@ var cl = console.log.bind(console); //shortens the debugging process a bit :)
  */
 app.use(
     require("express-session")({
-        secret: "Rusty is the best",
+        secret: "Abdu is the best",
         resave: false,
         saveUninitialized: false,
     })

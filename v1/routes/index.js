@@ -6,11 +6,12 @@
  */
 
 var express = require("express");
+var passport = require("passport");
 var router = express.Router();
 
 
 /**
- *  This route is for the landing page
+ *  This route is for the Landing page
  */
 router.get("/", (req, res) => {
     res.render("landing");
@@ -18,21 +19,45 @@ router.get("/", (req, res) => {
 
 
 /**
- *  This route is for filling the form
+ *  This route is for the Login page
  */
 router.get("/login", (req, res) => {
     res.render("login");
 });
 
 
-
 /**
- *  This route is for filling the form
+ *  This route is for handling Login logic
  */
-router.get("/signup", (req, res) => {
-    res.render("signup");
+router.post("/login", passport.authenticate("local", {
+    successRedirect: "/form",
+    failureRedirect: "/login"
+}), function(req, res) {
+
 });
 
+/**
+ *  This route is for Register page
+ */
+router.get("/register", (req, res) => {
+    res.render("register");
+});
+
+/**
+ *  This route is for Register logic
+ */
+router.post("/register", function(req, res) {
+    var newUser = new User({ username: req.body.username });
+    User.register(newUser, req.body.password, function(err, user) {
+        if (err) {
+            console.log(err);
+            return res.render("register");
+        }
+        passport.authenticate("local")(req, res, function() {
+            res.redirect("/form");
+        });
+    });
+});
 
 
 /**
