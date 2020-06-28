@@ -7,6 +7,8 @@
 
 var express = require("express");
 var passport = require("passport");
+var middleware = require("../middleware");
+var User = require("../models/user");
 var router = express.Router();
 
 
@@ -63,14 +65,14 @@ router.post("/register", function(req, res) {
 /**
  *  This route is for filling the form
  */
-router.get("/form", (req, res) => {
+router.get("/form", middleware.isLoggedIn, (req, res) => {
     res.render("form");
 });
 
 /**
  *  This route is generated to show the results of analyzing the form
  */
-router.get("/results", (req, res) => {
+router.get("/results", middleware.isLoggedIn, (req, res) => {
     res.render("results");
 });
 

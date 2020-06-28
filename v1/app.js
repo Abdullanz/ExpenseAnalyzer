@@ -12,25 +12,28 @@ var bodyParser = require("body-parser");
 var passport = require("passport");
 var methodOverride = require("method-override");
 var LocalStrategy = require("passport-local");
-
+var mongoDB = 'mongodb://localhost/ExpenseAnalyzer';
 //Models
 var Report = require("./models/report.js");
 var User = require("./models/user.js");
-
 //Routing
 var indexRoutes = require("./routes/index");
-
 
 
 /**
  * To conncet to local database
  */
-mongoose.connect("mongodb://localhost/ExpenseAnalyzer", {
+mongoose.connect(mongoDB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false
 });
 
+//Get the default connection
+var db = mongoose.connection;
+
+//Bind connection to error event (to get notification of connection errors)
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
 
@@ -70,6 +73,8 @@ passport.deserializeUser(User.deserializeUser());
 //To use the routes
 app.use(indexRoutes);
 
+//To seed the database with default data
+//seedDB();
 
 /**
  *  To init the server

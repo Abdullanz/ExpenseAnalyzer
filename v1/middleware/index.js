@@ -13,9 +13,12 @@ var Report = require("../models/report");
 
 var middlewareObj = {};
 
-//review
-middlewareObj.checkReportExistence = function(req, res, next) {
-
-};
+//middleware function to verify if the user is logged in or not
+middlewareObj.isLoggedIn = function(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect("/login");
+}
 
 module.exports = middlewareObj;
