@@ -9,6 +9,7 @@ var express = require("express");
 var passport = require("passport");
 var middleware = require("../middleware");
 var User = require("../models/user");
+var Report = require("../models/report");
 var router = express.Router();
 
 
@@ -70,11 +71,32 @@ router.get("/form", middleware.isLoggedIn, (req, res) => {
 });
 
 /**
- *  This route is for filling the form
+ *  CREATE - add new report to DB
  */
 router.post("/form", middleware.isLoggedIn, (req, res) => {
-    res.render("results");
-})
+    //need to add the posted information to the db array -> do it tomorrow!!!
+
+    // // get data from form and add to campgrounds array
+    // var name = req.body.name;
+    // var price = req.body.price;
+    // var image = req.body.image;
+    // var desc = req.body.description;
+    // var author = {
+    //     id: req.user._id,
+    //     username: req.user.username
+    // }
+    // var newCampground = { name: name, price: price, image: image, description: desc, author: author }
+    //     // Create a new campground and save to DB
+    // Campground.create(newCampground, function(err, newlyCreated) {
+    //     if (err) {
+    //         console.log(err);
+    //     } else {
+    //         //redirect back to results page
+    //         res.redirect("/results");
+    //     }
+    // });
+
+});
 
 
 /**
@@ -84,12 +106,13 @@ router.get("/results", middleware.isLoggedIn, (req, res) => {
     res.render("results");
 });
 
-/**
- * To post the information from the form to the results page
- */
-router.post("", (req, res) => {
-    res.send("yes!");
-});
 
+/**
+ * LOGOUT ROUTE
+ */
+router.get("/logout", function(req, res) {
+    req.logOut();
+    res.redirect("/");
+});
 
 module.exports = router;

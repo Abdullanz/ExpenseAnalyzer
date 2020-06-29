@@ -10,10 +10,10 @@ var mongoose = require("mongoose");
  * Report Schema
  */
 var reportSchema = new mongoose.Schema({
-    name: String,
-    investment: String,
-    description: String,
-    createdAt: { type: Date, default: Date.now },
+    salary: Number,
+    savings: Number,
+    spendings: Number,
+    debt: Number,
     author: {
         id: {
             type: mongoose.Schema.Types.ObjectId,
