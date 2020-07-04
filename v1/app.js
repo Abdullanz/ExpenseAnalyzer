@@ -18,6 +18,7 @@ var Report = require("./models/report.js");
 var User = require("./models/user.js");
 //Routing
 var indexRoutes = require("./routes/index");
+var AWS = require("aws-sdk");
 
 
 /**
