@@ -76,33 +76,37 @@ router.get("/form", middleware.isLoggedIn, (req, res) => {
 router.post("/form", middleware.isLoggedIn, (req, res) => {
     //need to add the posted information to the db array -> do it tomorrow!!!
 
-    // // get data from form and add to campgrounds array
-    // var name = req.body.name;
-    // var price = req.body.price;
-    // var image = req.body.image;
-    // var desc = req.body.description;
-    // var author = {
-    //     id: req.user._id,
-    //     username: req.user.username
-    // }
-    // var newCampground = { name: name, price: price, image: image, description: desc, author: author }
-    //     // Create a new campground and save to DB
-    // Campground.create(newCampground, function(err, newlyCreated) {
-    //     if (err) {
-    //         console.log(err);
-    //     } else {
-    //         //redirect back to results page
-    //         res.redirect("/results");
-    //     }
-    // });
+    // get data from form and add to campgrounds array
+    var salary = req.body.salary;
+    var savings = req.body.savings;
+    var spendings = req.body.spendings;
+    var debt = req.body.debt;
+    var author = {
+        id: req.user._id,
+        username: req.user.username
+    }
+    var newReport = { salary: salary, savings: savings, spendings: spendings, debt: debt, author: author }
+        // Create a new campground and save to DB
+    Report.create(newReport, function(err, newlyCreated) {
+        if (err) {
+            console.log(err);
+        } else {
+            //redirect back to results page
+            res.redirect("/results");
+        }
+    });
 
 });
+
 
 
 /**
  *  This route is generated to show the results of analyzing the form
  */
 router.get("/results", middleware.isLoggedIn, (req, res) => {
+    // Report.findById(req.params.id, function(err, foundRepo) {
+    //     res.render("results", { report: foundRepo });
+    // });
     res.render("results");
 });
 
